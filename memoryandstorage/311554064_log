@@ -1,0 +1,78 @@
+==236520== Memcheck, a memory error detector
+==236520== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==236520== Using Valgrind-3.20.0 and LibVEX; rerun with -h for copyright info
+==236520== Command: ./memleak
+==236520== Parent PID: 206081
+==236520== 
+==236520== Invalid write of size 4
+==236520==    at 0x1091C0: main (memleak.c:49)
+==236520==  Address 0x4a99068 is 0 bytes after a block of size 40 alloc'd
+==236520==    at 0x4848855: malloc (vg_replace_malloc.c:393)
+==236520==    by 0x10919E: main (memleak.c:46)
+==236520== 
+==236520== Invalid read of size 4
+==236520==    at 0x1091ED: main (memleak.c:54)
+==236520==  Address 0x4a99068 is 0 bytes after a block of size 40 alloc'd
+==236520==    at 0x4848855: malloc (vg_replace_malloc.c:393)
+==236520==    by 0x10919E: main (memleak.c:46)
+==236520== 
+==236520== Conditional jump or move depends on uninitialised value(s)
+==236520==    at 0x48E4B56: __vfprintf_internal (vfprintf-internal.c:1516)
+==236520==    by 0x48CE81E: printf (printf.c:33)
+==236520==    by 0x109214: main (memleak.c:57)
+==236520== 
+==236520== Use of uninitialised value of size 8
+==236520==    at 0x48C833B: _itoa_word (_itoa.c:177)
+==236520==    by 0x48E3B3D: __vfprintf_internal (vfprintf-internal.c:1516)
+==236520==    by 0x48CE81E: printf (printf.c:33)
+==236520==    by 0x109214: main (memleak.c:57)
+==236520== 
+==236520== Conditional jump or move depends on uninitialised value(s)
+==236520==    at 0x48C834C: _itoa_word (_itoa.c:177)
+==236520==    by 0x48E3B3D: __vfprintf_internal (vfprintf-internal.c:1516)
+==236520==    by 0x48CE81E: printf (printf.c:33)
+==236520==    by 0x109214: main (memleak.c:57)
+==236520== 
+==236520== Conditional jump or move depends on uninitialised value(s)
+==236520==    at 0x48E4643: __vfprintf_internal (vfprintf-internal.c:1516)
+==236520==    by 0x48CE81E: printf (printf.c:33)
+==236520==    by 0x109214: main (memleak.c:57)
+==236520== 
+==236520== Conditional jump or move depends on uninitialised value(s)
+==236520==    at 0x48E3C85: __vfprintf_internal (vfprintf-internal.c:1516)
+==236520==    by 0x48CE81E: printf (printf.c:33)
+==236520==    by 0x109214: main (memleak.c:57)
+==236520== 
+==236520== Argument 'size' of function malloc has a fishy (possibly negative) value: -40
+==236520==    at 0x4848855: malloc (vg_replace_malloc.c:393)
+==236520==    by 0x109220: main (memleak.c:61)
+==236520== 
+==236520== Invalid free() / delete / delete[] / realloc()
+==236520==    at 0x484B0C3: free (vg_replace_malloc.c:884)
+==236520==    by 0x10924A: main (memleak.c:65)
+==236520==  Address 0x4a994f0 is 0 bytes inside a block of size 40 free'd
+==236520==    at 0x484B0C3: free (vg_replace_malloc.c:884)
+==236520==    by 0x10923E: main (memleak.c:64)
+==236520==  Block was alloc'd at
+==236520==    at 0x4848855: malloc (vg_replace_malloc.c:393)
+==236520==    by 0x10922E: main (memleak.c:63)
+==236520== 
+==236520== 
+==236520== HEAP SUMMARY:
+==236520==     in use at exit: 40 bytes in 1 blocks
+==236520==   total heap usage: 3 allocs, 3 frees, 1,104 bytes allocated
+==236520== 
+==236520== 40 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==236520==    at 0x4848855: malloc (vg_replace_malloc.c:393)
+==236520==    by 0x10919E: main (memleak.c:46)
+==236520== 
+==236520== LEAK SUMMARY:
+==236520==    definitely lost: 40 bytes in 1 blocks
+==236520==    indirectly lost: 0 bytes in 0 blocks
+==236520==      possibly lost: 0 bytes in 0 blocks
+==236520==    still reachable: 0 bytes in 0 blocks
+==236520==         suppressed: 0 bytes in 0 blocks
+==236520== 
+==236520== Use --track-origins=yes to see where uninitialised values come from
+==236520== For lists of detected and suppressed errors, rerun with: -s
+==236520== ERROR SUMMARY: 10 errors from 10 contexts (suppressed: 0 from 0)
